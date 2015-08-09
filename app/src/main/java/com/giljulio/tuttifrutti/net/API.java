@@ -15,8 +15,11 @@ import retrofit.converter.GsonConverter;
 public class API {
 
     private static final String BBC_API_URL = "https://raw.githubusercontent.com/fmtvp/recruit-test-data/master";
+    private static final String WIKIPEDIA_API_URL = "https://en.wikipedia.org/w";
 
     private static BBCService sBBCService;
+
+    private static WikipediaService sWikipediaService;
 
     public static synchronized BBCService getBBCServiceInstance(){
         if(sBBCService == null){
@@ -27,12 +30,12 @@ public class API {
                     .setEndpoint(BBC_API_URL)
                     .setLogLevel(RestAdapter.LogLevel.NONE)
                     .setConverter(new GsonConverter(gson))
-                    .setErrorHandler(new ErrorHandler() {
+                    /*.setErrorHandler(new ErrorHandler() {
                         @Override
                         public Throwable handleError(RetrofitError cause) {
                             return null;
                         }
-                    })
+                    })*/
                     .setRequestInterceptor(new RequestInterceptor() {
                         @Override
                         public void intercept(RequestFacade request) {
@@ -45,5 +48,21 @@ public class API {
         }
 
         return sBBCService;
+    }
+
+    public static synchronized WikipediaService getWikipediaInstance(){
+        if(sWikipediaService == null){
+            Gson gson = new GsonBuilder().create();
+
+            RestAdapter restAdapter = new RestAdapter.Builder()
+                    .setEndpoint(WIKIPEDIA_API_URL)
+                    .setLogLevel(RestAdapter.LogLevel.NONE)
+                    .setConverter(new DynamicJsonConverter())
+                    .build();
+
+            sWikipediaService = restAdapter.create(WikipediaService.class);
+
+        }
+        return sWikipediaService;
     }
 }

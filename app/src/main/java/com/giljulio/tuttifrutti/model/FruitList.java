@@ -9,6 +9,6 @@ import java.util.ArrayList;
  */
 public class FruitList {
 
-    @SerializedName("fruits")
-    ArrayList<Fruit> fruits;
+    @SerializedName("fruit")
+    public ArrayList<Fruit> fruits;
 }

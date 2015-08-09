@@ -2,4 +2,6 @@
     <string name="app_name">Tutti Frutti</string>
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="transition.fruit.thumbnail" translatable="false">fruitThumbnail</string>
 </resources>

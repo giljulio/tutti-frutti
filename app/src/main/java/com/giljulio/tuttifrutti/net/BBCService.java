@@ -2,6 +2,7 @@ package com.giljulio.tuttifrutti.net;
 
 import com.giljulio.tuttifrutti.model.FruitList;
 
+import retrofit.Callback;
 import retrofit.http.GET;
 import retrofit.http.Query;
 
@@ -10,14 +11,14 @@ import retrofit.http.Query;
  */
 public interface BBCService {
 
-    @GET("data.json")
-    FruitList getFruitList();
+    @GET("/data.json")
+    void getFruitList(Callback<FruitList> cb);
 
     //TODO: If a REST request changes data on the server it should be a POST request
-    @GET("stats")
+    @GET("/stats")
     void postStats(@Query("event") String event);
 
-    @GET("stats")
+    @GET("/stats")
     void postStats(@Query("event") String event, @Query("data") Object data);
 
 }
