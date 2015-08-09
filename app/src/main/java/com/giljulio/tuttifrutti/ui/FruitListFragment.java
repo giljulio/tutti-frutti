@@ -32,7 +32,7 @@ public class FruitListFragment extends Fragment implements Callback<FruitList> {
 
     private static final Logger LOG = Logger.create();
 
-    private static final int COLUMN_COUNT = 2;
+    private static int COLUMN_COUNT;
 
     @InjectView(R.id.fruit_grid)
     EmptyRecyclerView mFruitGrid;
@@ -49,6 +49,12 @@ public class FruitListFragment extends Fragment implements Callback<FruitList> {
     private FruitAdapter mFruitAdapter;
 
     public FruitListFragment() {}
+
+    @Override
+    public void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        COLUMN_COUNT = getResources().getInteger(R.integer.grid_cols_count);
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {

@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
+import android.os.Build;
 import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -89,7 +90,9 @@ class FruitAdapter extends RecyclerView.Adapter<FruitAdapter.ViewHolder> {
                     }
 
                     void startActivity(){
-                        holder.thumbnail.setTransitionName(mActivity.getString(R.string.transition_fruit_thumbnail));
+                        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+                            holder.thumbnail.setTransitionName(mActivity.getString(R.string.transition_fruit_thumbnail));
+                        }
                         DetailActivity.startActivity(mActivity, fruit, holder.thumbnail);
                     }
                 });
