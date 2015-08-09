@@ -52,8 +52,6 @@ public class API {
 
     public static synchronized WikipediaService getWikipediaInstance(){
         if(sWikipediaService == null){
-            Gson gson = new GsonBuilder().create();
-
             RestAdapter restAdapter = new RestAdapter.Builder()
                     .setEndpoint(WIKIPEDIA_API_URL)
                     .setLogLevel(RestAdapter.LogLevel.NONE)

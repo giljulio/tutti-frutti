@@ -16,9 +16,9 @@ public interface BBCService {
 
     //TODO: If a REST request changes data on the server it should be a POST request
     @GET("/stats")
-    void postStats(@Query("event") String event);
+    void postStats(@Query("event") String event, Callback cb);
 
     @GET("/stats")
-    void postStats(@Query("event") String event, @Query("data") Object data);
+    void postStats(@Query("event") String event, @Query("data") Object data, Callback<?> cb);
 
 }
