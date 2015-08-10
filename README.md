@@ -1,6 +1,9 @@
 # tutti-frutti
 BBC android developer code challenge
 
+<a href="https://play.google.com/store/apps/details?id=com.giljulio.tuttifrutti">
+<img alt="Get it on Google Play" src="http://steverichey.github.io/google-play-badge-svg/img/en_get.svg" />
+</a>
 
 ### Challenge 
 > You are tasked with writing a mobile application (native iOS or Android) consisting of two screens for displaying data about fruit.
